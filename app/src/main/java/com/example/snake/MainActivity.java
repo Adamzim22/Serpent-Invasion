@@ -11,3 +11,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 }
+
+
+.setOnClickListener() {
+    opentogame();
+    opentoleaderboard();
+}
+
+public void open() {
+    Intent what = new Intent(this, LeaderBoard);
+}

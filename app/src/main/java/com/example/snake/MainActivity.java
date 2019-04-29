@@ -2,27 +2,62 @@ package com.example.snake;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AutoCompleteTextView;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.Switch;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
-    /**
-     *
-     */
-.setOnClickListener() {
-        opentogame();
-        opentoleaderboard();
-    }
 
-    public void open() {
-        Intent what = new Intent(this, LeaderBoard);
-    }
+    Switch bombs;
+    AutoCompleteTextView textView;
+    String name = "";
+    boolean bombsOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (end) {
-            setContentView(R.layout.activity_leaderboard);
-        }
+
+        // get the imageView on the left
+        ImageView leftImage = (ImageView) findViewById(R.id.imageView);
+        leftImage.setImageResource(R.drawable.snake);
+
+        // get the textView
+        textView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+
+        // get the switch view
+        bombs = (Switch) findViewById(R.id.switch1);
+        bombs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    System.out.println("Bombs are turned on");
+                    bombsOn = isChecked;
+                } else {
+                    System.out.println("Bombs are turned off");
+                    bombsOn = isChecked;
+                }
+            }
+        });
+
+    }
+
+    public void startClicked(View view) {
+        System.out.println("Start button clicked");
+        System.out.println(textView.getText().toString());
+
+        Intent intent = new Intent(getBaseContext(), Game.class);
+        startActivity(intent);
+    }
+
+    public void leaderboardClicked(View view) {
+        System.out.println("Leaderboard button clicked");
+
+        Intent intent = new Intent(getBaseContext(), Leaderboard.class);
+        startActivity(intent);
     }
 
 }

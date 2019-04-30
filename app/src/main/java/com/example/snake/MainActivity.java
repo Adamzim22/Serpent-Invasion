@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
         ImageView leftImage = (ImageView) findViewById(R.id.imageView);
         leftImage.setImageResource(R.drawable.snake);
 
-        // get the textView
-        textView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        // get the textView (Unless you want to do the enter name thing.  I deleted
+        // it because it would have been more work than just last score & high score.
+        //textView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
 
         // get the switch view
         bombs = (Switch) findViewById(R.id.switch1);

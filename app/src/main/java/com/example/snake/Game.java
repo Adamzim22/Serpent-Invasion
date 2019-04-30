@@ -10,6 +10,8 @@ public class Game extends AppCompatActivity {
 
     int score = 100;
 
+    private static final String API_CALL =  "https://random.dog/b8acf898-dc54-4ff3-973b-a0e00e567b8c.jpg";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,4 +46,5 @@ public class Game extends AppCompatActivity {
     //      Intent intent = new Intent(getBaseContext(), Game.class);
     //      startActivity(intent);
     // }
+
 }
